@@ -1,14 +1,20 @@
-import { useState } from 'react'
-import './App.css'
+import { useState, useEffect } from 'react';
+import './App.css';
+
 
 const App = () => {
-  const name = "Me";
-  const isNameShowing = true;
+  const [counter, setCounter] = useState(0);
+
+  useEffect(() => {
+    setCounter(100);
+  }, []);
 
   return (
     <div className='App'>
-      <h1>Hello {isNameShowing ? name : 'someone'}!</h1>
-      
+      <button onClick={() => setCounter(counter - 1)} >-</button>
+      <h1>{counter}</h1>
+      <button onClick={() => setCounter(counter + 1)} >+</button>
+
     </div>
   )
 }
